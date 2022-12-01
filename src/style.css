@@ -1,0 +1,90 @@
+body {
+  font-family: "Kalam", cursive;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  margin: 0 auto;
+}
+form {
+  padding: 8px 15px;
+  font-size: 16px;
+}
+h1 {
+  border: black solid 1px;
+  border-radius: 35px;
+  padding: 5px 150px;
+  display: inline;
+  position: left;
+}
+h2 {
+  display: inline;
+  border: black solid 1px;
+  border-radius: 35px;
+  padding: 15px 30px;
+  font-size: 20px;
+  margin-left: 20px;
+}
+button[type="button"] {
+  padding: 10px 18px;
+  border-radius: 20px;
+}
+input[type="text"] {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border-radius: 35px;
+}
+.main {
+  border: black solid 1px;
+  border-radius: 55px;
+  padding: 30px 50px;
+}
+
+.alertButton {
+  padding: 5px 120px;
+  border-radius: 20px;
+  position: left;
+}
+.current {
+  font-size: 20px;
+  border: black solid 1px;
+  border-radius: 35px;
+  padding: 5px 80px;
+  margin-left: 40px;
+  position: right;
+}
+.detailsCurrent {
+  display: inline-block;
+  position: right;
+  margin-left: 50px;
+}
+.wind {
+  border: black solid 1px;
+  padding: 5px 20px;
+  border-radius: 20px;
+}
+.precip {
+  border: black solid 1px;
+  padding: 5px 20px;
+  margin-left: 10px;
+  border-radius: 20px;
+}
+.row {
+  border: black solid 1px;
+  border-radius: 55px;
+  padding: 30px 80px;
+  margin: 8px 15px;
+}
+.changeUnits {
+  display: inline;
+}
+.units {
+  font-size: 12px;
+}
+.currentButton {
+  border: black solid 1px;
+  border-radius: 35px;
+  display: inline block;
+  font-size: 18px;
+  padding: 10px 25px;
+  margin-right: 20px;
+}
