@@ -9,7 +9,7 @@ let days = [
   "Wednesday",
   "Thursday",
   "Friday",
-  "Saturday"
+  "Saturday",
 ];
 let day = days[now.getDay()];
 
@@ -34,7 +34,7 @@ function showWeather(response) {
 
   document.querySelector("#wind").innerHTML = `Wind | ${Math.round(
     response.data.wind.speed
-  )} ms `;
+  )} mi/h `;
   document.querySelector(
     "#precip"
   ).innerHTML = `Humidity | ${response.data.main.humidity}%`;
