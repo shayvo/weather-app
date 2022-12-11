@@ -79,6 +79,8 @@ input[type="text"] {
 }
 .units {
   font-size: 12px;
+  position: relative;
+  top: -8px;
 }
 .currentButton {
   border: black solid 1px;
