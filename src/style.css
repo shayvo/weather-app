@@ -57,6 +57,7 @@ input[type="text"] {
   position: right;
   margin-left: 50px;
 }
+
 .wind {
   border: black solid 1px;
   padding: 5px 20px;
@@ -81,6 +82,7 @@ input[type="text"] {
   font-size: 12px;
   position: relative;
   top: -8px;
+  color: grey;
 }
 .currentButton {
   border: black solid 1px;
@@ -89,4 +91,7 @@ input[type="text"] {
   font-size: 18px;
   padding: 10px 25px;
   margin-right: 20px;
+}
+.low {
+  color: slategray;
 }
