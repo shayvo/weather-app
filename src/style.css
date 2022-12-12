@@ -17,7 +17,10 @@ h1 {
 }
 h2 {
   display: inline;
-  font-size: 17px;
+  font-size: 18px;
+  border: black solid 1px;
+  border-radius: 100px;
+  padding: 12px 25px;
 }
 
 button[type="button"] {
@@ -40,11 +43,11 @@ a {
 }
 .details {
   display: inline;
+  font-size: 22px;
+  margin-right: 10px;
   border: black solid 1px;
-  border-radius: 35px;
-  padding: 12px 25px;
-  font-size: 20px;
-  margin-left: 15px;
+  border-radius: 100px;
+  padding: 10px 22px;
 }
 .temperature {
   padding-right: -15px;
