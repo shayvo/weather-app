@@ -42,13 +42,13 @@ a {
   padding: 30px 50px;
 }
 
-.alertButton {
+.timeButton {
   padding: 5px 120px;
   border-radius: 20px;
   position: left;
 }
 .current {
-  font-size: 20px;
+  font-size: 18px;
   border: black solid 1px;
   border-radius: 35px;
   padding: 5px 80px;
@@ -87,14 +87,10 @@ a {
   top: -8px;
   color: grey;
 }
-.currentButton {
-  border: black solid 1px;
-  border-radius: 35px;
-  display: inline block;
-  font-size: 18px;
-  padding: 10px 25px;
-  margin-right: 20px;
-}
+
 .low {
   color: slategray;
+}
+.timeButton {
+  font-size: 14px;
 }

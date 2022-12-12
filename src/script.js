@@ -1,4 +1,4 @@
-let timing = document.querySelector("h2");
+let date = document.querySelector("h2");
 
 let now = new Date();
 
@@ -12,6 +12,7 @@ let days = [
   "Saturday",
 ];
 let day = days[now.getDay()];
+date.innerHTML = `${day}`;
 
 let hours = now.getHours();
 if (hours <= 9) {
@@ -21,7 +22,31 @@ let minutes = now.getMinutes();
 if (minutes <= 9) {
   minutes = `0${minutes}`;
 }
-timing.innerHTML = `${day} ${hours}:${minutes}`;
+let sec = now.getSeconds();
+if (sec <= 9) {
+  sec = `0${sec}`;
+}
+
+let currentTime = document.querySelector("#updated-time");
+currentTime.innerHTML = `${hours}: ${minutes}: ${sec}`;
+
+function changeTime(event) {
+  event.preventDefault();
+  let newHours = now.getHours();
+  if (newHours <= 9) {
+    newHours = `0${newHours}`;
+  }
+  let newMinutes = now.getMinutes();
+  if (newMinutes <= 9) {
+    newMinutes = `0${newMinutes}`;
+  }
+  let newNow = new Date();
+  let newSec = newNow.getSeconds();
+  if (newSec <= 9) {
+    newSec = `0${newSec}`;
+  }
+  currentTime.innerHTML = `${newHours}: ${newMinutes}: ${newSec}`;
+}
 
 function showWeather(response) {
   document.querySelector("#city").innerHTML = response.data.name;
@@ -91,3 +116,6 @@ fahrenLink.addEventListener("click", changeToFahren);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", changeToCel);
+
+let updateTime = document.querySelector("#time-button");
+updateTime.addEventListener("click", changeTime);
