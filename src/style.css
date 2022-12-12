@@ -48,6 +48,7 @@ a {
   border: black solid 1px;
   border-radius: 100px;
   padding: 10px 22px;
+  margin-left: 10px;
 }
 .temperature {
   padding-right: -15px;
