@@ -5,7 +5,7 @@ body {
   margin: 0 auto;
 }
 form {
-  padding: 18px 15px;
+  padding: 18px;
   font-size: 16px;
 }
 h1 {
@@ -14,6 +14,7 @@ h1 {
   padding: 5px 150px;
   display: inline;
   position: left;
+  font-size: 45px;
 }
 h2 {
   display: inline;
@@ -44,11 +45,11 @@ a {
 .details {
   display: inline;
   font-size: 22px;
-  margin-right: 10px;
   border: black solid 1px;
   border-radius: 100px;
   padding: 10px 22px;
   margin-left: 10px;
+  position: right;
 }
 .temperature {
   padding-right: -15px;

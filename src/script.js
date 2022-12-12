@@ -50,8 +50,11 @@ function changeTime(event) {
 
 function showWeather(response) {
   document.querySelector("#city").innerHTML = response.data.name;
+
+  fahrenTemp = response.data.main.temp;
+
   document.querySelector("#current-temp").innerHTML = `${Math.round(
-    response.data.main.temp
+    fahrenTemp
   )} `;
   document.querySelector(
     "#condition"
@@ -96,16 +99,16 @@ function findCurrentLocation(event) {
 function changeToFahren(event) {
   event.preventDefault();
   let temp = document.querySelector("#current-temp");
-  temp.innerHTML = 66;
+  let farTemp = (celsTemp * 9) / 5 + 32;
+  temp.innerHTML = Math.round(farTemp);
 }
 
 function changeToCel(event) {
   event.preventDefault();
   let temp = document.querySelector("#current-temp");
-  temp.innerHTML = 17;
+  let celTemp = (fahrenTemp - 32) * (5 / 9);
+  temp.innerHTML = Math.round(celTemp);
 }
-
-findCity("Columbus");
 
 let searchForm = document.querySelector("#city-form");
 searchForm.addEventListener("submit", searchingCity);
@@ -126,3 +129,8 @@ let updateTime = document.querySelector("#time-button");
 updateTime.addEventListener("click", changeTime);
 
 let iconElement = document.querySelector("#icon");
+
+let fahrenTemp = null;
+let celsTemp = null;
+
+findCity("Columbus");
