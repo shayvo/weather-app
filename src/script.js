@@ -12,7 +12,7 @@ let days = [
   "Saturday",
 ];
 let day = days[now.getDay()];
-date.innerHTML = `${day}`;
+date.innerHTML = ` ${day} `;
 
 let hours = now.getHours();
 if (hours <= 9) {
@@ -55,13 +55,13 @@ function showWeather(response) {
   )} `;
   document.querySelector(
     "#condition"
-  ).innerHTML = `| ${response.data.weather[0].main}`;
+  ).innerHTML = `${response.data.weather[0].main}`;
 
-  document.querySelector("#wind").innerHTML = `Wind | ${Math.round(
+  document.querySelector("#wind").innerHTML = ` Wind | ${Math.round(
     response.data.wind.speed
   )} mi/h `;
   document.querySelector(
-    "#precip"
+    "#humidity"
   ).innerHTML = `Humidity | ${response.data.main.humidity}%`;
 }
 

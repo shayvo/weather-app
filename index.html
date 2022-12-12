@@ -44,22 +44,25 @@
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>
           </span>
-          <h2></h2>
+          <span class="details">
+            <span class="changeUnits">
+              <span class="temperature" id="current-temp">19</span
+              ><span class="units">
+                <a href="#" id="fahren-link">°F </a> |
+                <a href="#" id="celsius-link">°C</a>
+              </span>
+            </span>
+            |
+            <h2></h2>
+          </span>
         </div>
       </form>
 
       <div class="main">
         <h1 id="city"></h1>
         <span class="current">
-          <div class="changeUnits">
-            <span class="temperature" id="current-temp">19</span
-            ><span class="units">
-              <a href="#" id="fahren-link">°F </a> |
-              <a href="#" id="celsius-link">°C</a>
-            </span>
-          </div>
-          <span id="condition"></span
-        ></span>
+          <span id="condition"></span>
+        </span>
         <br />
         <br />
         <button class="timeButton" id="time-button">
@@ -68,8 +71,9 @@
         </button>
 
         <p class="detailsCurrent">
-          <span class="wind" id="wind"></span
-          ><span class="precip" id="precip"></span>
+          <span class="wind" id="wind"></span>
+
+          <span class="humidity" id="humidity"></span>
         </p>
 
         <div class="row">

@@ -17,12 +17,9 @@ h1 {
 }
 h2 {
   display: inline;
-  border: black solid 1px;
-  border-radius: 35px;
-  padding: 15px 30px;
-  font-size: 20px;
-  margin-left: 20px;
+  font-size: 17px;
 }
+
 button[type="button"] {
   padding: 10px 18px;
   border-radius: 20px;
@@ -41,9 +38,20 @@ a {
   border-radius: 55px;
   padding: 30px 50px;
 }
+.details {
+  display: inline;
+  border: black solid 1px;
+  border-radius: 35px;
+  padding: 12px 25px;
+  font-size: 20px;
+  margin-left: 15px;
+}
+.temperature {
+  padding-right: -15px;
+}
 
 .timeButton {
-  padding: 5px 120px;
+  padding: 5px 80px;
   border-radius: 20px;
   position: left;
 }
@@ -52,13 +60,14 @@ a {
   border: black solid 1px;
   border-radius: 35px;
   padding: 5px 80px;
-  margin-left: 40px;
+  margin-left: 30px;
   position: right;
 }
 .detailsCurrent {
   display: inline-block;
   position: right;
   margin-left: 50px;
+  font-size: 14px;
 }
 
 .wind {
@@ -66,7 +75,7 @@ a {
   padding: 5px 20px;
   border-radius: 20px;
 }
-.precip {
+.humidity {
   border: black solid 1px;
   padding: 5px 20px;
   margin-left: 10px;
