@@ -32,15 +32,15 @@ currentTime.innerHTML = `${hours}: ${minutes}: ${sec}`;
 
 function changeTime(event) {
   event.preventDefault();
-  let newHours = now.getHours();
+  let newNow = new Date();
+  let newHours = newNow.getHours();
   if (newHours <= 9) {
     newHours = `0${newHours}`;
   }
-  let newMinutes = now.getMinutes();
+  let newMinutes = newNow.getMinutes();
   if (newMinutes <= 9) {
     newMinutes = `0${newMinutes}`;
   }
-  let newNow = new Date();
   let newSec = newNow.getSeconds();
   if (newSec <= 9) {
     newSec = `0${newSec}`;
@@ -63,6 +63,11 @@ function showWeather(response) {
   document.querySelector(
     "#humidity"
   ).innerHTML = `Humidity | ${response.data.main.humidity}%`;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function findCity(city) {
@@ -119,3 +124,5 @@ celsiusLink.addEventListener("click", changeToCel);
 
 let updateTime = document.querySelector("#time-button");
 updateTime.addEventListener("click", changeTime);
+
+let iconElement = document.querySelector("#icon");
