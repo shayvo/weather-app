@@ -99,13 +99,16 @@ function findCurrentLocation(event) {
 function changeToFahren(event) {
   event.preventDefault();
   let temp = document.querySelector("#current-temp");
-  let farTemp = (celsTemp * 9) / 5 + 32;
-  temp.innerHTML = Math.round(farTemp);
+  fahrenLink.classList.remove("active");
+  celsiusLink.classList.add("active");
+  temp.innerHTML = Math.round(fahrenTemp);
 }
 
 function changeToCel(event) {
   event.preventDefault();
   let temp = document.querySelector("#current-temp");
+  celsiusLink.classList.remove("active");
+  fahrenLink.classList.add("active");
   let celTemp = (fahrenTemp - 32) * (5 / 9);
   temp.innerHTML = Math.round(celTemp);
 }

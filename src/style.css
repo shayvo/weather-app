@@ -22,6 +22,7 @@ h2 {
   border: black solid 1px;
   border-radius: 100px;
   padding: 12px 25px;
+  margin-left: 5px;
 }
 
 button[type="button"] {
@@ -36,6 +37,7 @@ input[type="text"] {
 }
 a {
   color: lightseagreen;
+  text-decoration: none;
 }
 .main {
   border: black solid 1px;
@@ -49,7 +51,6 @@ a {
   border-radius: 100px;
   padding: 10px 22px;
   margin-left: 10px;
-  position: right;
 }
 .temperature {
   padding-right: -15px;
@@ -68,13 +69,11 @@ a {
   font-size: 18px;
   border: black solid 1px;
   border-radius: 35px;
-  padding: 23px 80px;
+  padding: 25px 80px;
   margin-left: 30px;
-  position: right;
 }
-.detailsCurrent {
+.currentConditions {
   display: inline-block;
-  position: right;
   margin-left: 50px;
   font-size: 14px;
 }
@@ -104,6 +103,7 @@ a {
   position: relative;
   top: -8px;
   color: grey;
+  text-decoration: none;
 }
 
 .low {
@@ -111,4 +111,8 @@ a {
 }
 .timeButton {
   font-size: 14px;
+}
+.active {
+  color: black;
+  cursor: default;
 }
