@@ -30,6 +30,41 @@ if (sec <= 9) {
 let currentTime = document.querySelector("#updated-time");
 currentTime.innerHTML = `${hours}: ${minutes}: ${sec}`;
 
+function changeBackground() {
+  let now = new Date();
+  let hours = now.getHours();
+
+  if (hours >= 5 && hours <= 8) {
+    document.write(
+      '<body style="background: radial-gradient(circle at 10% 20%,rgb(226, 240, 254) 0%,rgb(255, 247, 228) 90%)">'
+    ); //rise
+  }
+  if (hours >= 9 && hours <= 12) {
+    document.write(
+      '<body style=" background: linear-gradient(44.8deg,rgba(255, 136, 102, 0.67) -53.1%,rgba(255, 221, 136, 0.28) 49%)">'
+    ); //yellow
+  }
+  if (hours >= 13 && hours <= 15) {
+    document.write(
+      '<body style="background: radial-gradient(circle at 10% 20%,rgb(255, 252, 214) 0%,rgba(255, 102, 102, 0.44) 90%)">'
+    ); //pink
+  }
+  if (hours >= 16 && hours <= 19) {
+    document.write(
+      '<body style="background: linear-gradient(68.1deg,rgb(248, 205, 205) -0.3%,rgb(149, 170, 211) 100.7%)">'
+    ); //set
+  }
+  if (hours >= 20 && hours <= 22) {
+    document.write(
+      '<body style="background: linear-gradient(to top, #09203f 0%, #537895 100%)">'
+    ); //blue
+  } else {
+    document.write(
+      '<body style="background: radial-gradient(circle at 1.8% 4.8%, rgb(17, 23, 58) 0%, rgb(58, 85, 148) 90%)">'
+    ); //dark
+  }
+}
+
 function changeTime(event) {
   event.preventDefault();
   let newNow = new Date();
@@ -57,6 +92,7 @@ function formatDay(timestamp) {
 
 function displayForecast(response) {
   let forecast = response.data.daily;
+  console.log(forecast);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
 
@@ -162,3 +198,4 @@ updateTime.addEventListener("click", changeTime);
 let iconElement = document.querySelector("#icon");
 
 findCity("Columbus");
+changeBackground();
