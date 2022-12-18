@@ -47,6 +47,39 @@ function changeTime(event) {
   }
   currentTime.innerHTML = `${newHours}: ${newMinutes}: ${newSec}`;
 }
+function displayForecast(response) {
+  console.log(response.data.daily);
+  let forecast = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Sun", "Mon", "Tues"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+        <div class="col">
+             <div class="forecast-date">
+                <h5 class="day">${day}</h5>
+                <img
+                  src="http://openweathermap.org/img/wn/10d@2x.png"
+                  alt=""
+                  width="150";
+                />
+                <p class="forecast-temp">
+                  <span class="high">58°</span> / <span class="low">43°</span>
+                </p>
+            </div>
+        </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecast.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let apiKey = "fda3688b1db05987dd5d07c237aecfba";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(displayForecast);
+}
 
 function showWeather(response) {
   document.querySelector("#city").innerHTML = response.data.name;
@@ -71,6 +104,8 @@ function showWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(response.data.coord);
 }
 
 function findCity(city) {
@@ -113,33 +148,6 @@ function changeToCel(event) {
   temp.innerHTML = Math.round(celTemp);
 }
 
-function displayForecast() {
-  let forecast = document.querySelector("#forecast");
-  let forecastHTML = `<div class="row">`;
-  let days = ["Sun", "Mon", "Tues"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
-        <div class="col">
-             <div class="forecast-date">
-                <h5 class="day">${day}</h5>
-                <img
-                  src="http://openweathermap.org/img/wn/10d@2x.png"
-                  alt=""
-                  width="150";
-                />
-                <p class="forecast-temp">
-                  <span class="high">58°</span> / <span class="low">43°</span>
-                </p>
-            </div>
-        </div>`;
-  });
-
-  forecastHTML = forecastHTML + `</div>`;
-  forecast.innerHTML = forecastHTML;
-}
-
 let searchForm = document.querySelector("#city-form");
 searchForm.addEventListener("submit", searchingCity);
 
@@ -163,4 +171,3 @@ let iconElement = document.querySelector("#icon");
 let fahrenTemp = null;
 
 findCity("Columbus");
-displayForecast();
