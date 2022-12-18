@@ -77,7 +77,16 @@ a {
   margin-left: 50px;
   font-size: 14px;
 }
-
+.changeUnits {
+  display: inline;
+}
+.units {
+  font-size: 12px;
+  position: relative;
+  top: -8px;
+  color: grey;
+  text-decoration: none;
+}
 .wind {
   border: black solid 1px;
   padding: 5px 20px;
@@ -95,19 +104,8 @@ a {
   padding: 30px 80px;
   margin: 8px 15px;
 }
-.changeUnits {
-  display: inline;
-}
-.units {
-  font-size: 12px;
-  position: relative;
-  top: -8px;
-  color: grey;
-  text-decoration: none;
-}
-
 .low {
-  color: slategray;
+  opacity: 0.6;
 }
 .timeButton {
   font-size: 14px;

@@ -113,6 +113,33 @@ function changeToCel(event) {
   temp.innerHTML = Math.round(celTemp);
 }
 
+function displayForecast() {
+  let forecast = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Sun", "Mon", "Tues"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+        <div class="col">
+             <div class="forecast-date">
+                <h5 class="day">${day}</h5>
+                <img
+                  src="http://openweathermap.org/img/wn/10d@2x.png"
+                  alt=""
+                  width="150";
+                />
+                <p class="forecast-temp">
+                  <span class="high">58°</span> / <span class="low">43°</span>
+                </p>
+            </div>
+        </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecast.innerHTML = forecastHTML;
+}
+
 let searchForm = document.querySelector("#city-form");
 searchForm.addEventListener("submit", searchingCity);
 
@@ -136,4 +163,4 @@ let iconElement = document.querySelector("#icon");
 let fahrenTemp = null;
 
 findCity("Columbus");
-changeBackground();
+displayForecast();
