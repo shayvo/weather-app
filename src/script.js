@@ -60,7 +60,7 @@ function showWeather(response) {
     "#condition"
   ).innerHTML = `${response.data.weather[0].main}`;
 
-  document.querySelector("#wind").innerHTML = ` Wind | ${Math.round(
+  document.querySelector("#wind").innerHTML = `Wind | ${Math.round(
     response.data.wind.speed
   )} mi/h `;
   document.querySelector(
@@ -134,6 +134,6 @@ updateTime.addEventListener("click", changeTime);
 let iconElement = document.querySelector("#icon");
 
 let fahrenTemp = null;
-let celsTemp = null;
 
 findCity("Columbus");
+changeBackground();
