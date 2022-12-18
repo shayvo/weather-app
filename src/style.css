@@ -28,6 +28,7 @@ h2 {
 button[type="button"] {
   padding: 10px 18px;
   border-radius: 20px;
+  background: rgb(236, 110, 75, 0.7);
 }
 input[type="text"] {
   width: 40%;
@@ -36,7 +37,7 @@ input[type="text"] {
   border-radius: 35px;
 }
 a {
-  color: lightseagreen;
+  color: #ec6e4b;
   text-decoration: none;
 }
 .main {
@@ -47,7 +48,7 @@ a {
 .details {
   display: inline;
   font-size: 22px;
-  border: black solid 1px;
+  border: #ec6e4b solid 1px;
   border-radius: 100px;
   padding: 10px 22px;
   margin-left: 10px;
@@ -64,6 +65,7 @@ a {
   padding: 5px 80px;
   border-radius: 20px;
   position: left;
+  background: rgb(236, 110, 75, 0.7);
 }
 .current {
   font-size: 18px;
@@ -99,18 +101,14 @@ a {
   border-radius: 20px;
 }
 .row {
-  border: black solid 1px;
+  border: #ec6e4b solid 1px;
   border-radius: 55px;
   padding: 30px 80px;
   margin: 8px 15px;
 }
 .low {
-  opacity: 0.6;
+  color: #ec6e4b;
 }
 .timeButton {
   font-size: 14px;
-}
-.active {
-  color: black;
-  cursor: default;
 }

@@ -147,23 +147,6 @@ function findCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(findLocation);
 }
 
-function changeToFahren(event) {
-  event.preventDefault();
-  let temp = document.querySelector("#current-temp");
-  fahrenLink.classList.remove("active");
-  celsiusLink.classList.add("active");
-  temp.innerHTML = Math.round(fahrenTemp);
-}
-
-function changeToCel(event) {
-  event.preventDefault();
-  let temp = document.querySelector("#current-temp");
-  celsiusLink.classList.remove("active");
-  fahrenLink.classList.add("active");
-  let celTemp = (fahrenTemp - 32) * (5 / 9);
-  temp.innerHTML = Math.round(celTemp);
-}
-
 let searchForm = document.querySelector("#city-form");
 searchForm.addEventListener("submit", searchingCity);
 
@@ -173,17 +156,9 @@ searchButton.addEventListener("click", searchingCity);
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", findCurrentLocation);
 
-let fahrenLink = document.querySelector("#fahren-link");
-fahrenLink.addEventListener("click", changeToFahren);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", changeToCel);
-
 let updateTime = document.querySelector("#time-button");
 updateTime.addEventListener("click", changeTime);
 
 let iconElement = document.querySelector("#icon");
-
-let fahrenTemp = null;
 
 findCity("Columbus");
