@@ -126,6 +126,12 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 
+function findCoordinates(city) {
+  let apiKey = "bb983f865f669b3e5ce1bacdbd335789";
+  let apiURL = `https://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&appid=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(showWeather);
+}
+
 function getForecast(coordinatesLat, coordinatedLon) {
   let apiKey = "bb983f865f669b3e5ce1bacdbd335789";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
@@ -136,41 +142,36 @@ function getForecast(coordinatesLat, coordinatedLon) {
 
 function showWeather(response) {
   document.querySelector("#city").innerHTML = response.name;
-  let apiKey = "bb983f865f669b3e5ce1bacdbd335789";
-  let cityLat = response.lat;
-  let cityLon = response.lon;
-  let cityInfo =
-    "https://api.openweathermap.org/data/2.5/weather?lat=${cityLat}&lon=${cityLon}&appid=${apiKey}&units=imperial";
 
-  fahrenTemp = cityInfo.main.temp;
+  fahrenTemp = response.main.temp;
 
   document.querySelector("#current-temp").innerHTML = `${Math.round(
     fahrenTemp
   )} `;
   document.querySelector(
     "#condition"
-  ).innerHTML = `${cityInfo.data.weather[0].main}`;
+  ).innerHTML = `${response.data.weather[0].main}`;
 
   document.querySelector("#wind").innerHTML = `Wind | ${Math.round(
-    cityInfo.data.wind.speed
+    response.data.wind.speed
   )} mi/h `;
   document.querySelector(
     "#humidity"
-  ).innerHTML = `Humidity | ${cityInfo.data.main.humidity}%`;
+  ).innerHTML = `Humidity | ${response.data.main.humidity}%`;
   iconElement.setAttribute(
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  iconElement.setAttribute("alt", cityInfo.data.weather[0].description);
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 
-  getForecast(cityLat, cityLon);
+  getForecast(response.lat, response.lon);
 }
 
 function findCity(city) {
   let apiKey = "bb983f865f669b3e5ce1bacdbd335789";
   //let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
   let apiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
-  axios.get(apiUrl).then(showWeather);
+  axios.get(apiUrl).then(findCoordinates);
 }
 
 function searchingCity(event) {
