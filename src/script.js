@@ -104,7 +104,7 @@ function displayForecast(response) {
              <div class="forecast-date">
                 <h5 class="day">${formatDay(forecastDay.dt)}</h5>
                 <img
-                  src="http://openweathermap.org/img/wn/${
+                  src="https://openweathermap.org/img/wn/${
                     forecastDay.weather[0].icon
                   }@2x.png"
                   alt=""
@@ -129,7 +129,7 @@ function displayForecast(response) {
 function getForecast(coordinatesLat, coordinatedLon) {
   let apiKey = "fda3688b1db05987dd5d07c237aecfba";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
-  //let apiUrl = `http://api.openweathermap.org/geo/1.0/reverse?lat=${coordinatesLat}&lon=${coordinatedLon}&limit=5&appid=${apiKey}&units=imperial`;
+  //let apiUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${coordinatesLat}&lon=${coordinatedLon}&limit=5&appid=${apiKey}&units=imperial`;
 
   axios.get(apiUrl).then(displayForecast);
 }
@@ -154,7 +154,7 @@ function showWeather(response) {
   ).innerHTML = `Humidity | ${response.data.main.humidity}%`;
   iconElement.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
@@ -164,7 +164,7 @@ function showWeather(response) {
 function findCity(city) {
   let apiKey = "fda3688b1db05987dd5d07c237aecfba";
   //let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
-  let apiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}&units=imperial`;
+  let apiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(showWeather);
 }
 
@@ -178,7 +178,7 @@ function searchingCity(event) {
 function findLocation(position) {
   let apiKey = "fda3688b1db05987dd5d07c237aecfba";
   //  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`;
-  let apiUrl = `http://api.openweathermap.org/geo/1.0/reverse?lat=${position.lat}&lon=${position.lon}&appid=${apiKey}&units=imperial`;
+  let apiUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${position.lat}&lon=${position.lon}&appid=${apiKey}&units=imperial`;
 
   axios.get(apiUrl).then(showWeather);
 }
