@@ -137,7 +137,7 @@ function getForecast(coordinatesLat, coordinatedLon) {
 function showWeather(response) {
   document.querySelector("#city").innerHTML = response.name;
 
-  fahrenTemp = response.data.main.temp;
+  fahrenTemp = response.main.temp;
 
   document.querySelector("#current-temp").innerHTML = `${Math.round(
     fahrenTemp
