@@ -127,8 +127,9 @@ function displayForecast(response) {
 }
 
 function findCoordinates(city) {
+  document.querySelector("#city").innerHTML = city.name;
   let apiKey = "bb983f865f669b3e5ce1bacdbd335789";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&appid=${apiKey}&units=imperial`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${city.data.lat}&lon=${city.data.lon}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(showWeather);
 }
 
@@ -140,8 +141,6 @@ function getForecast(coordinatesLat, coordinatedLon) {
 }
 
 function showWeather(response) {
-  document.querySelector("#city").innerHTML = response.name;
-
   fahrenTemp = response.main.temp;
 
   document.querySelector("#current-temp").innerHTML = `${Math.round(
