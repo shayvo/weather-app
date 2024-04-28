@@ -100,8 +100,7 @@ function displayForecast(response) {
     if (index < 5) {
       forecastHTML =
         forecastHTML +
-        `
-        <div class="col">
+        ` <div class="col">
              <div class="forecast-date">
                 <h5 class="day">${formatDay(forecastDay.dt)}</h5>
                 <img
@@ -127,9 +126,11 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 
-function getForecast(coordinates) {
+function getForecast(coordinatesLat, coordinatedLon) {
   let apiKey = "fda3688b1db05987dd5d07c237aecfba";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+  //let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+  let apiUrl = `http://api.openweathermap.org/geo/1.0/reverse?lat=${coordinatesLat}&lon=${coordinatedLon}&limit=5&appid=${apiKey}&units=imperial`;
+
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -157,12 +158,13 @@ function showWeather(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
-  getForecast(response.data.coord);
+  getForecast(response.data.lat, response.data.lon);
 }
 
 function findCity(city) {
   let apiKey = "fda3688b1db05987dd5d07c237aecfba";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+  //let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+  let apiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(showWeather);
 }
 
@@ -175,7 +177,9 @@ function searchingCity(event) {
 
 function findLocation(position) {
   let apiKey = "fda3688b1db05987dd5d07c237aecfba";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`;
+  //  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`;
+  let apiUrl = `http://api.openweathermap.org/geo/1.0/reverse?lat=${position.lat}&lon=${position.lon}&appid=${apiKey}&units=imperial`;
+
   axios.get(apiUrl).then(showWeather);
 }
 function findCurrentLocation(event) {
