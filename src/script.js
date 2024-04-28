@@ -128,7 +128,7 @@ function displayForecast(response) {
 
 function findCoordinates(city) {
   let apiKey = "bb983f865f669b3e5ce1bacdbd335789";
-  let apiURL = `https://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&appid=${apiKey}&units=imperial`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(showWeather);
 }
 
@@ -136,7 +136,6 @@ function getForecast(coordinatesLat, coordinatedLon) {
   let apiKey = "bb983f865f669b3e5ce1bacdbd335789";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
   //let apiUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${coordinatesLat}&lon=${coordinatedLon}&limit=5&appid=${apiKey}&units=imperial`;
-
   axios.get(apiUrl).then(displayForecast);
 }
 
