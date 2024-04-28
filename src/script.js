@@ -136,35 +136,40 @@ function getForecast(coordinatesLat, coordinatedLon) {
 
 function showWeather(response) {
   document.querySelector("#city").innerHTML = response.name;
+  let apiKey = "bb983f865f669b3e5ce1bacdbd335789";
+  let cityLat = response.lat;
+  let cityLon = response.lon;
+  let cityInfo =
+    "https://api.openweathermap.org/data/2.5/weather?lat=${cityLat}&lon=${cityLon}&appid=${apiKey}&units=imperial";
 
-  fahrenTemp = response.main.temp;
+  fahrenTemp = cityInfo.main.temp;
 
   document.querySelector("#current-temp").innerHTML = `${Math.round(
     fahrenTemp
   )} `;
   document.querySelector(
     "#condition"
-  ).innerHTML = `${response.data.weather[0].main}`;
+  ).innerHTML = `${cityInfo.data.weather[0].main}`;
 
   document.querySelector("#wind").innerHTML = `Wind | ${Math.round(
-    response.data.wind.speed
+    cityInfo.data.wind.speed
   )} mi/h `;
   document.querySelector(
     "#humidity"
-  ).innerHTML = `Humidity | ${response.data.main.humidity}%`;
+  ).innerHTML = `Humidity | ${cityInfo.data.main.humidity}%`;
   iconElement.setAttribute(
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  iconElement.setAttribute("alt", response.data.weather[0].description);
+  iconElement.setAttribute("alt", cityInfo.data.weather[0].description);
 
-  getForecast(response.data.lat, response.data.lon);
+  getForecast(cityLat, cityLon);
 }
 
 function findCity(city) {
   let apiKey = "bb983f865f669b3e5ce1bacdbd335789";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
-  //let apiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}&units=imperial`;
+  //let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+  let apiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
   axios.get(apiUrl).then(showWeather);
 }
 
