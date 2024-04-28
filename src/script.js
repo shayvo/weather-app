@@ -112,9 +112,9 @@ function displayForecast(response) {
                 />
                 <p class="forecast-temp">
                   <span class="high">${Math.round(
-                    forecastDay.temp.max
+                    forecastDay.main.temp_max
                   )}°</span> / <span class="low">${Math.round(
-          forecastDay.temp.min
+          forecastDay.main.temp_min
         )}°</span>
                 </p>
             </div>
@@ -128,14 +128,14 @@ function displayForecast(response) {
 
 function getForecast(coordinatesLat, coordinatedLon) {
   let apiKey = "fda3688b1db05987dd5d07c237aecfba";
-  //let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
-  let apiUrl = `http://api.openweathermap.org/geo/1.0/reverse?lat=${coordinatesLat}&lon=${coordinatedLon}&limit=5&appid=${apiKey}&units=imperial`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+  //let apiUrl = `http://api.openweathermap.org/geo/1.0/reverse?lat=${coordinatesLat}&lon=${coordinatedLon}&limit=5&appid=${apiKey}&units=imperial`;
 
   axios.get(apiUrl).then(displayForecast);
 }
 
 function showWeather(response) {
-  document.querySelector("#city").innerHTML = response.data.name;
+  document.querySelector("#city").innerHTML = response.name;
 
   fahrenTemp = response.data.main.temp;
 
@@ -163,8 +163,8 @@ function showWeather(response) {
 
 function findCity(city) {
   let apiKey = "fda3688b1db05987dd5d07c237aecfba";
-  //let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
-  let apiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}&units=imperial`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+  // let apiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(showWeather);
 }
 
