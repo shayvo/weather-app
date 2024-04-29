@@ -127,7 +127,7 @@ function displayForecast(response) {
 }
 
 function findCoordinates(city) {
-  console.log(city.json());
+  console.log(city);
   let apiKey = "bb983f865f669b3e5ce1bacdbd335789";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(showWeather);
